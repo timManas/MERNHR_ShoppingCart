@@ -43,6 +43,7 @@ export const registerUser = asyncHandler(async (req, res) => {
   const userExists = await User.findOne({ email })
   if (userExists) {
     res.status(400)
+    res.json({ data: 'User Already Exists' })
     throw new Error('User already exists')
   }
 
